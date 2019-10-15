@@ -85,7 +85,18 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
-  }
+  },
+  {
+    title: 'Hutch Crowley Wins Developer of the Year',
+    date: 'Jan 1st, 2021',
+    firstParagraph: `Hutch crowley is a magnificent developer, so much so that he won the prize this year for the seventh year in a row. 'It's amazing' Says Hutch, 'I haven't even been developing stuff for seven years. I don't know why they keep giving me this thing'. The crowd of 400,000 people screamed in adoration as Hutch went out to receive the award.`,
+
+    secondParagraph: `Blah blah blah blah something blah lalalalal blah blah?
+    Blah blah blah blah something blah lalalalal blah blah? Blah blah blah blah something blah lalalalal blah blah? Blah blah blah blah something blah lalalalal blah blah? Blah blah blah blah something blah lalalalal blah blah? Blah blah blah blah something blah lalalalal blah blah? `,
+
+    thirdParagraph: `Blah blah blah blah something blah lalalalal blah blah?
+    Blah blah blah blah something blah lalalalal blah blah? Blah blah blah blah something blah lalalalal blah blah? Blah blah blah blah something blah lalalalal blah blah? Blah blah blah blah something blah lalalalal blah blah? Blah blah blah blah something blah lalalalal blah blah`
+  },
 ];
 
 const articleCreator = (data) => {
@@ -95,15 +106,16 @@ const articleCreator = (data) => {
   const firstParagraph = document.createElement('p');
   const secondParagraph = document.createElement('p');
   const thirdParagraph = document.createElement('p');
-  const expandButton = document.createElement('span');
+  const expandButton = document.createElement('button');
 
-  article.classList.add('article-open');
+  article.classList.add('article');
   date.classList.add('date');
-
   expandButton.classList.add('expandButton');
-
+  title.classList.add('title');
   title.textContent = data.title;
+  date.classList.add = ('date');
   date.textContent = data.date;
+  expandButton.textContent = 'Expand';
   firstParagraph.textContent = data.firstParagraph;
   secondParagraph.textContent = data.secondParagraph;
   thirdParagraph.textContent = data.thirdParagraph;
@@ -114,11 +126,11 @@ const articleCreator = (data) => {
   });
 
   article.appendChild(title);
-  article.appendChild(title);
+  article.appendChild(date);
+  article.appendChild(expandButton);
   article.appendChild(firstParagraph);
   article.appendChild(secondParagraph);
   article.appendChild(thirdParagraph);
-  article.appendChild(expandButton);
 
 
   return article;
@@ -128,7 +140,7 @@ const articles = document.querySelector('.articles');
 
 data.map(element => {
 
-  articles.appendChild(articleMaker(element));
+  articles.appendChild(articleCreator(element));
 
 });
 

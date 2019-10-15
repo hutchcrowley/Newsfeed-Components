@@ -1,7 +1,7 @@
 
 /* This is the data we will be using, study it but don't change anything, yet. */
 
-let menuItems = [
+const menuItems = [
   'Students',
   'Faculty',
   "What's New",
@@ -10,15 +10,28 @@ let menuItems = [
   'Log Out'
 ];
 
-function menuCreator() {
+const menuCreator = (menuItems) => {
 
-  const menu = document.getElementsByClassName('menu');
+  const menu = document.createElement('div');
+  const menuItemsList = document.createElement('ul');
+
+  menu.classList.add('menu');
 
 
-}
+  menuItems.forEach(element => {
 
+    const listItem = menuItemsList.createElement('li');
+    listItem.textContent = menuItems[i];
+  });
+  const menuButton = document.querySelector('.menu-button');
+  menuButton.addEventListener('click', (e) => {
+    menu.classList.toggle('menu-open');
 
+  });
 
+  return menu;
+
+};
 
 /*
 
