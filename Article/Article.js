@@ -88,6 +88,65 @@ const data = [
   }
 ];
 
+function articleCreator(title, date, firstParagraph, secondParagraph, thirdParagraph) {
+  // const mainBody = document.createElement('div');
+  const articleTitle = document.createElement('h2');
+  const articleDate = document.createElement('p');
+  const paragraph1 = document.createElement('p');
+  const paragraph2 = document.createElement('p');
+  const paragraph3 = document.createElement('p');
+
+
+  const expandButton = document.querySelector('button');
+  const article = document.querySelector('.articles');
+
+
+
+  article.classList.add('article-open');
+  articleTitle.classList.add('article-title');
+  articleDate.classList.add('article-date');
+  paragraph1.classList.add('firstParagraph');
+  paragraph2.classList.add('secondParagraph');
+  paragraph3.classList.add('thirdParagraph');
+  // buttonPanel.classList.add('article-button');
+  // expandButton.classList.add('expand-button');
+  // expandButton.textContent = 'expand';
+  // buttonClose.classList.add('panel-btn-close, article-open');
+  // panelContent.classList.add('panel-content');
+  // const expandButton = menu-button;
+
+
+
+  expandButton.addEventListener('onclick',
+
+    article.classList.toggle('article-open')
+
+  );
+
+  mainBody.appendChild(article);
+  article.appendChild(articleTitle);
+  article.appendChild(articleDate);
+  article.appendChild(paragraph1);
+  article.appendChild(paragraph2);
+  article.appendChild(paragraph3);
+
+
+  // buttonPanel.appendChild(buttonOpen);
+  // buttonPanel.appendChild(buttonClose);
+
+  return article;
+}
+
+
+data.map(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph);
+
+
+
+
+
+
+
+
 /* Step 1: Create a function that creates a component. You will want your component to look like the template below:
 
   <div class="article">
@@ -98,6 +157,8 @@ const data = [
 
     <span class='expandButton'></span>
   </div>
+
+
 
   Hint: You will need to use createElement more than once here!
 
