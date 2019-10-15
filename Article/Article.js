@@ -88,59 +88,49 @@ const data = [
   }
 ];
 
-function articleCreator(title, date, firstParagraph, secondParagraph, thirdParagraph) {
-  // const mainBody = document.createElement('div');
-  const articleTitle = document.createElement('h2');
-  const articleDate = document.createElement('p');
-  const paragraph1 = document.createElement('p');
-  const paragraph2 = document.createElement('p');
-  const paragraph3 = document.createElement('p');
-
-
-  const expandButton = document.querySelector('button');
-  const article = document.querySelector('.articles');
-
-
+const articleCreator = (data) => {
+  const article = document.createElement('div');
+  const title = document.createElement('h2');
+  const date = document.createElement('p');
+  const firstParagraph = document.createElement('p');
+  const secondParagraph = document.createElement('p');
+  const thirdParagraph = document.createElement('p');
+  const expandButton = document.createElement('span');
 
   article.classList.add('article-open');
-  articleTitle.classList.add('article-title');
-  articleDate.classList.add('article-date');
-  paragraph1.classList.add('firstParagraph');
-  paragraph2.classList.add('secondParagraph');
-  paragraph3.classList.add('thirdParagraph');
-  // buttonPanel.classList.add('article-button');
-  // expandButton.classList.add('expand-button');
-  // expandButton.textContent = 'expand';
-  // buttonClose.classList.add('panel-btn-close, article-open');
-  // panelContent.classList.add('panel-content');
-  // const expandButton = menu-button;
+  date.classList.add('date');
 
+  expandButton.classList.add('expandButton');
 
+  title.textContent = data.title;
+  date.textContent = data.date;
+  firstParagraph.textContent = data.firstParagraph;
+  secondParagraph.textContent = data.secondParagraph;
+  thirdParagraph.textContent = data.thirdParagraph;
 
-  expandButton.addEventListener('onclick',
+  expandButton.addEventListener('click', (e) => {
+    article.classList.toggle('article-open');
 
-    article.classList.toggle('article-open')
+  });
 
-  );
+  article.appendChild(title);
+  article.appendChild(title);
+  article.appendChild(firstParagraph);
+  article.appendChild(secondParagraph);
+  article.appendChild(thirdParagraph);
+  article.appendChild(expandButton);
 
-  mainBody.appendChild(article);
-  article.appendChild(articleTitle);
-  article.appendChild(articleDate);
-  article.appendChild(paragraph1);
-  article.appendChild(paragraph2);
-  article.appendChild(paragraph3);
-
-
-  // buttonPanel.appendChild(buttonOpen);
-  // buttonPanel.appendChild(buttonClose);
 
   return article;
-}
+};
 
+const articles = document.querySelector('.articles');
 
-data.map(data.title, data.date, data.firstParagraph, data.secondParagraph, data.thirdParagraph);
+data.map(element => {
 
+  articles.appendChild(articleMaker(element));
 
+});
 
 
 
